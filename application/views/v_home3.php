@@ -36,101 +36,6 @@ var map = new L.Map('map', {
 }); //set center from first location
 map.addLayer(new L.TileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png')); //base layer
 
-//---------polygone-------------
-$.getJSON("<?=base_url('leaflet/mojotrisno.geojson')?>", function(data) {
-    geoLayer = L.geoJson(data, {
-        style: function(feature) {
-
-            var id = feature.properties.id;
-            if (id == 1) {
-                return {
-                    opacity: 0.5,
-                    color: 'rgba(35,35,35,1.0)',
-                    dashArray: '',
-                    lineCap: 'butt',
-                    lineJoin: 'miter',
-                    weight: 1.0,
-                    fill: true,
-                    fillOpacity: 0.5,
-                    fillColor: 'rgba(62,40,231,1.0)',
-                    interactive: true,
-                };
-            } else if (id == 2) {
-                return {
-                    opacity: 0.5,
-                    color: 'rgba(35,35,35,1.0)',
-                    dashArray: '',
-                    lineCap: 'butt',
-                    lineJoin: 'miter',
-                    weight: 1.0,
-                    fill: true,
-                    fillOpacity: 0.5,
-                    fillColor: 'rgba(189,207,52,1.0)',
-                    interactive: true,
-                };
-            } else if (id == 3) {
-                return {
-                    opacity: 0.5,
-                    color: 'rgba(35,35,35,1.0)',
-                    dashArray: '',
-                    lineCap: 'butt',
-                    lineJoin: 'miter',
-                    weight: 1.0,
-                    fill: true,
-                    fillOpacity: 0.5,
-                    fillColor: 'rgba(231,132,25,1.0)',
-                    interactive: true,
-                };
-            } else if (id == 4) {
-                return {
-                    opacity: 0.5,
-                    color: 'rgba(35,35,35,1.0)',
-                    dashArray: '',
-                    lineCap: 'butt',
-                    lineJoin: 'miter',
-                    weight: 1.0,
-                    fill: true,
-                    fillOpacity: 0.5,
-                    fillColor: 'rgba(161,40,212,1.0)',
-                    interactive: true,
-                };
-            } else if (id == 5) {
-                return {
-                    opacity: 0.5,
-                    color: 'rgba(35,35,35,1.0)',
-                    dashArray: '',
-                    lineCap: 'butt',
-                    lineJoin: 'miter',
-                    weight: 1.0,
-                    fill: true,
-                    fillOpacity: 0.5,
-                    fillColor: 'rgba(238,22,40,1.0)',
-                    interactive: true,
-                };
-            } else if (id == 6) {
-                return {
-                    opacity: 0.5,
-                    color: 'rgba(35,35,35,1.0)',
-                    dashArray: '',
-                    lineCap: 'butt',
-                    lineJoin: 'miter',
-                    weight: 1.0,
-                    fill: true,
-                    fillOpacity: 0.5,
-                    fillColor: 'rgba(124,226,84,1.0)',
-                    interactive: true,
-                };
-            }
-
-        },
-        onEachFeature: function(feature, layer) {
-
-        }
-    }).addTo(map);
-});
-//---------end polygone-------------
-
-
 var markersLayer = new L.LayerGroup(); //layer contain searched elements
 map.addLayer(markersLayer);
 var controlSearch = new L.Control.Search({
@@ -201,8 +106,11 @@ for (i in data_profile) {
     var marker = new L.Marker(new L.latLng(loc), {
         title: title,
        icon: ikon
-    }); //se property searched
+    });
     marker.bindPopup(info_tempat);
     markersLayer.addLayer(marker);
 }
+
+
+var polyline = L.polyline(locals, {color: 'blue'}).addTo(map);
 </script>

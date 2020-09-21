@@ -10,6 +10,7 @@ class Home extends CI_Controller
         parent::__construct();
         $this->load->model('m_dma');
         $this->load->model('M_Profile_Pelanggan', 'profile');
+        $this->load->model('M_Jaringan', 'jaringan');
         $this->load->database();
         $this->load->library(['ion_auth', 'form_validation']);
         $this->load->helper(['url', 'language']);
@@ -88,6 +89,23 @@ class Home extends CI_Controller
             'isi'      => 'v_home3',
         );
         $this->load->view('template/v_wrapper', $data, false);
+    }
+
+    public function list_link()
+    {
+        $r = array();
+        $this->db->select('*');
+        $this->db->from('tbl_kegiatan');
+        $this->db->group_by('nama');
+        $result = $this->db->get()->result();
+        // stock results in array
+        $r[] = $result;
+        foreach ($result as $row) {
+            $r[] = $row->lat;
+        }
+        echo "<pre>";
+        print_r($r);
+        echo "</pre>";
     }
 }
 

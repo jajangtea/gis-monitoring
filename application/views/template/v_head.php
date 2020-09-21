@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="<?=base_url()?>template/assets/css/bootstrap.min.css" />
     <link rel="stylesheet" href="<?=base_url()?>template/menu.css" />
     <link rel="stylesheet" href="<?=base_url()?>template/assets/font-awesome/4.5.0/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.draw/0.4.2/leaflet.draw.css"/>
 
     <!-- page specific plugin styles -->
 
@@ -127,7 +128,7 @@
 
     <script>
     var base_url = '<?=base_url()?>' // Buat variabel base_url agar bisa di akses di semua file js
-    var _iduser ='<?=$this->session->userdata('last_idnya') ?>';
+    var _iduser ='<?=$this->session->userdata('last_idnya')?>';
     </script>
 
 </head>

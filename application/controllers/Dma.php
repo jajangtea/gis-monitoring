@@ -84,7 +84,7 @@ class Dma extends CI_Controller
 
             $this->m_dma->add($data);
             $this->session->set_flashdata('pesan', 'Data Berhasil Ditambahkan');
-            redirect('dma			');
+            redirect('dma');
         }
     }
 

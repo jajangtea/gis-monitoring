@@ -9,12 +9,6 @@ if ($this->ion_auth->in_group('pelanggan')) {?>
         <li><a href="<?=base_url()?>"><i class=""></i> Home</a></li>
         <li><a href="<?=base_url('auth/profile_pelanggan')?>"><i class=""></i> Profil</a></li>
         <li><a href="<?=base_url('keluhan')?>"><i class=""></i> Keluhan</a></li>
-        <li>
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Kegiatan Fisik &nbsp;<i
-                    class="fa fa-angle-down bigger-110"></i></a>
-
-        </li>
-        <li><a href="<?=base_url('kegiatan')?>"><i class=""></i> Data Kegiatan Fisik</a></li>
         <?php }?>
 
         <?php if ($this->ion_auth->in_group('admin')) {?>
@@ -22,6 +16,7 @@ if ($this->ion_auth->in_group('pelanggan')) {?>
         <li><a href="<?=base_url('rumah')?>"><i class=""></i> Gallery</a></li>
         <li><a href="<?=base_url('auth')?>"><i class=""></i> Staff</a></li>
         <li><a href="<?=base_url('auth/pelanggan')?>"><i class=""></i> Pelanggan</a></li>
+        <li><a href="<?=base_url('jaringan')?>"><i class=""></i> Jaringan</a></li>
         <?php }?>
 
 
